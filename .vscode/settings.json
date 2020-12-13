@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "covid19pelotas\\Scripts\\python.exe",
+    "python.pythonPath": "covid-rs-analisys\\Scripts\\python.exe",
     "python.linting.enabled": false
 }
