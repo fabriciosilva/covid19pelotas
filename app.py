@@ -209,5 +209,5 @@ fig.update_layout(
 st.plotly_chart(fig, use_container_width=True)
 
 
-
-df_copy.date
+st.markdown('## Tabela com dados detalhados')
+df_copy
