@@ -215,7 +215,18 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 st.markdown('## Tabela com dados detalhados')
-df_copy
+
+df_copy.rename(columns={
+    'city':'Cidade', 
+    'date':'Data', 
+    'last_available_confirmed':'Casos Confirmados',
+    'rolling_avg' : 'Média Móvel de casos',
+    'rolling_avg_deaths': 'Média Móvel Mortes'
+    } )[['Cidade', 'Data', 'Casos Confirmados', 'Média Móvel de casos', 'Média Móvel Mortes']]
+
+
+
+my_html('<br><br><br>')
 
 st.markdown("""
 ## Sobre o painel
@@ -225,7 +236,7 @@ Em meio ao caos da pandemia, que infelizmente atinge o auge em nossa região, po
 ### Origem dos dados
 As informações aqui apresentadas não tem, de forma nenhuma, a pretensão de substituir os dados oficiais. Nossa intenção é apenas demonstrar de forma simples e direta as informações sobre a covid-19.
 
-Os dados são coletados na plataforma (brasil.io), que por sua vez, compila as informações das secretarias estaduais de saúde e gentilmente libera sob a licença CC BY-SA 4.0, num belo trabalho de [Álvaro Justen e dezenas de colaboradores](https://blog.brasil.io/2020/03/23/dados-coronavirus-por-municipio-mais-atualizados/).
+Os dados são coletados na plataforma [Brasil.io](https://brasil.io), que por sua vez, compila as informações das secretarias estaduais de saúde e gentilmente libera sob a licença CC BY-SA 4.0, num belo trabalho de [Álvaro Justen e dezenas de colaboradores](https://blog.brasil.io/2020/03/23/dados-coronavirus-por-municipio-mais-atualizados/).
 
 ### Metodologia de cálculo da média móvel
 A média móvel é calculada através da soma dos últimos 14 dias, dividido por 14.
