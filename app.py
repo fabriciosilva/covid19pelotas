@@ -49,9 +49,14 @@ df = df[df['is_repeated'] == False]
 df.date = pd.to_datetime(df['date'])
 
 
+st.sidebar.markdown("""
+    # Olá,  
+    Seja bem vind@ ao painel de acompanhamento da evolução da Covid-19 
+
+""")
 
 start_time = st.sidebar.slider(
-     "Selecione as datas:",
+     "Altere as datas para consultar os números acumulados no período:",
      value=(datetime(df.date.min().year, df.date.min().month, df.date.min().day), datetime(df.date.max().year, df.date.max().month, df.date.max().day)),
      format="DD/MM")
 
@@ -211,3 +216,20 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.markdown('## Tabela com dados detalhados')
 df_copy
+
+st.markdown("""
+## Sobre o painel
+
+Em meio ao caos da pandemia, que infelizmente atinge o auge em nossa região, podemos destacar um ponto positivo da administração pública que é disponibilização dos dados livremente para a comunidade. A análise porém sem a metodologia correta e ferramentas ágeis de visualização fica comprometida. Além disso, a média móvel, um dos indicadores mais utilizados pela imprensa para acompanhamento da evolução da doença, é publicado apenas a nível estadual e nacional. Não encontramos, de forma fácil, pelo menos, esse indicador por município e resolver desenvolver para Pelotas.
+
+### Origem dos dados
+As informações aqui apresentadas não tem, de forma nenhuma, a pretensão de substituir os dados oficiais. Nossa intenção é apenas demonstrar de forma simples e direta as informações sobre a covid-19.
+
+Os dados são coletados na plataforma (brasil.io), que por sua vez, compila as informações das secretarias estaduais de saúde e gentilmente libera sob a licença CC BY-SA 4.0, num belo trabalho de [Álvaro Justen e dezenas de colaboradores](https://blog.brasil.io/2020/03/23/dados-coronavirus-por-municipio-mais-atualizados/).
+
+### Metodologia de cálculo da média móvel
+A média móvel é calculada através da soma dos últimos 14 dias, dividido por 14.
+
+### Quem somos?
+Os dados são coletados, tratados, e disponibilizados pelos analistas [Fabrício Silva](https://www.linkedin.com/in/fabriciofsilva) e [Thiago Oliveira](https://www.linkedin.com/in/thiago-oliveira-30440552/)
+""")
